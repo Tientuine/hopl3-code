@@ -1,0 +1,93 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 1571a2c8b82f999687a7d22325e701a0d666e0cc60fa30f5a2f9c6451b8acb10
+
+name:           hopl3
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/hopl3#readme>
+homepage:       https://github.com/githubuser/hopl3#readme
+bug-reports:    https://github.com/githubuser/hopl3/issues
+author:         Matthew A Johnson
+maintainer:     Matt.Johnson@marist.edu
+copyright:      2015-2020 Matthew A Johnson
+license:        CC-BY-NC-3.0
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/hopl3
+
+library
+  exposed-modules:
+      HOPL.LET.Environment
+      HOPL.LET.Interp
+      HOPL.LET.Lexer
+      HOPL.LET.Parser
+      HOPL.LET.Syntax
+      HOPL.LET.Val
+      HOPL.Types
+  other-modules:
+      Paths_hopl3
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , parsec >=3.1
+  default-language: Haskell2010
+
+executable hopl3-repl
+  main-is: Main.hs
+  other-modules:
+      Paths_hopl3
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is repl
+  build-depends:
+      base >=4.7 && <5
+    , haskeline >=0.7
+    , hopl3
+    , mtl >=2.2
+    , parsec >=3.1
+  default-language: Haskell2010
+
+executable hopl3-run
+  main-is: Main.hs
+  other-modules:
+      Paths_hopl3
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is run
+  build-depends:
+      base >=4.7 && <5
+    , haskeline >=0.7
+    , hopl3
+    , mtl >=2.2
+    , parsec >=3.1
+  default-language: Haskell2010
+
+test-suite hopl3-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_hopl3
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , haskeline >=0.7
+    , hopl3
+    , mtl >=2.2
+    , parsec >=3.1
+    , tasty
+    , tasty-hspec
+    , tasty-hunit
+  default-language: Haskell2010
